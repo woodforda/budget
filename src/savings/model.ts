@@ -1,7 +1,7 @@
-export interface Incoming {
+export interface SavingsGoal {
   key: string;
-  payer: string;
+  goal: string;
   amount: number;
   dueDate: Date;
-  recurring: boolean;
+  priority: number;
 }

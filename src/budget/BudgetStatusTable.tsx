@@ -2,6 +2,7 @@ import React from 'react';
 import BaseTable from "../components/BaseTable";
 import {BudgetEntry} from "./model";
 import {formatNumber} from "../components/utils";
+import {styled} from "styletron-react";
 
 const columns = [
   {
@@ -33,35 +34,37 @@ const columns = [
 
 ];
 
-const summary = (pageData: BudgetEntry[]) => {
+const TD = styled("td",{
+  fontWeight: "bold",
+  textAlign: 'right',
+})
+
+const summary = (pageData) => {
   let totalBudget = 0;
   let totalActual = 0;
-  pageData.forEach(({budget, actual}) => {
-    totalBudget += budget;
-    totalActual += actual;
+  let totalDifference  = 0;
+  pageData.forEach(({budget, actual, difference}) => {
+    totalBudget += budget
+    totalActual += actual
+    totalDifference += difference
   });
   return (
       <>
         <tr>
           <td><b>Total</b></td>
-          <td style={{
-            fontWeight: "bold",
-            textAlign: 'right'
-          }}>{formatNumber(totalBudget)}</td>
-          <td style={{
-            fontWeight: "bold",
-            textAlign: 'right'
-          }}>{formatNumber(totalActual)}</td>
+          <TD>{formatNumber(totalBudget)}</TD>
+          <TD>{formatNumber(totalActual)}</TD>
+          <TD>{formatNumber(totalDifference)}</TD>
         </tr>
       </>
   )
 }
 
-function BudgetTable(props) {
+function BudgetStatusTable(props) {
   return (
       <BaseTable dataSource={props.dataSource} columns={columns}
                  summary={props.showSummary ? pageData => summary(pageData) : undefined}/>
   );
 }
 
-export default BudgetTable;
+export default BudgetStatusTable;

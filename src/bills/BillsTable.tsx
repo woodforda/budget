@@ -1,10 +1,7 @@
 import React from 'react';
-import {SettingOutlined} from "@ant-design/icons";
-import {BILLS_DATA_SOURCE} from "./BillsData";
-import {toHumanDuration} from "../components/utils";
-import BaseCard from "../components/BaseCard";
-import {Button} from "antd";
 import BaseTable from "../components/BaseTable";
+import {Outgoing} from "./model";
+import {formatNumber, toHumanDuration} from "../components/utils";
 
 const columns = [
   {
@@ -17,9 +14,7 @@ const columns = [
     dataIndex: 'amount',
     key: 'amount',
     align: 'right' as 'right',
-    render: (amt: number) => {
-      return (<>{new Intl.NumberFormat().format(amt)}</>)
-    },
+    render: formatNumber,
   },
   {
     title: 'Due',
@@ -30,17 +25,30 @@ const columns = [
   },
 ];
 
-function BillsCard() {
-  let dataSource = BILLS_DATA_SOURCE.filter(it => !it.recurring)
+const summary = (pageData: Outgoing[]) => {
+  let totalAmount = 0;
+  pageData.forEach(({amount}) => {
+    totalAmount += amount;
+  });
   return (
-      <BaseCard title={"One-off Bills"}
-                extra={[
-                  <Button icon={<SettingOutlined/>}/>
-                ]}
-      >
-        <BaseTable dataSource={dataSource} columns={columns}/>
-      </BaseCard>
+      <>
+        <tr>
+          <td><b>Total</b></td>
+          <td style={{
+            fontWeight: "bold",
+            textAlign: 'right'
+          }}>{formatNumber(totalAmount)}</td>
+          <td></td>
+        </tr>
+      </>
+  )
+}
+
+function BillsTable(props) {
+  return (
+      <BaseTable dataSource={props.dataSource} columns={columns}
+                 summary={props.showSummary ? pageData => summary(pageData) : undefined}/>
   );
 }
 
-export default BillsCard;
+export default BillsTable;

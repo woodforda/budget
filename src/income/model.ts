@@ -1,6 +1,7 @@
-export interface Outgoing {
+export interface Incoming {
   key: string;
-  payee: string;
+  payer: string;
   amount: number;
   dueDate: Date;
+  recurring: boolean;
 }

@@ -1,84 +1,30 @@
-import React from 'react';
-import {Table} from "antd";
-import {RiseOutlined} from "@ant-design/icons";
-import DashboardCard from '../dashboard/DashboardCard';
+import {toDate} from '../components/utils';
+import {Incoming} from "./model";
 
-const dataSource = [
+const INCOME_DATA_SOURCE:Incoming[] = [
   {
     key: '1',
-    payer: 'SwissQuant Salary',
-    amount: 3381.00,
-    dueDate: '25th September 2020',
+    payer: 'Salary',
+    amount: 7500.00,
+    dueDate: toDate("2020-09-25"),
+    recurring: true,
   },
   {
     key: '2',
-    payer: 'Alimony',
-    amount: 3000,
-    dueDate: '1st October 2020',
+    payer: 'Child Allowance',
+    amount: 200,
+    dueDate: toDate("2020-10-01"),
+    recurring: true,
   },
   {
     key: '3',
-    payer: 'Rent - Cameron',
+    payer: 'Spesen',
     amount: 150,
-    dueDate: '1st October 2020',
+    dueDate: toDate("2020-10-01"),
+    recurring: false,
   },
 ];
 
-const columns = [
-  {
-    title: 'From',
-    dataIndex: 'payer',
-    key: 'payer',
-  },
-  {
-    title: 'Amount',
-    dataIndex: 'amount',
-    key: 'amount',
-    align: 'right' as 'right',
-    render: (amt: number) => {
-      return (<>{new Intl.NumberFormat().format(amt)}</>)
-    },
-  },
-  {
-    title: 'Due',
-    dataIndex: 'dueDate',
-    key: 'dueDate',
-  },
-];
-
-
-function IncomeDashboardCard() {
-  return (
-      <DashboardCard title="Income"
-                     description={"Upcoming credits to your account"}
-                     icon={<RiseOutlined/>}
-                     link={"/income"}
-      >
-        <Table dataSource={dataSource}
-               columns={columns}
-               bordered={false}
-               pagination={false}
-               size={"small"}
-               summary={pageData => {
-                 let totalAmount = 0;
-                 pageData.forEach(({amount}) => {
-                   totalAmount += amount;
-                 });
-                 return (
-                     <>
-                       <tr>
-                         <td><b>Total</b></td>
-                         <td style={{
-                           fontWeight: "bold",
-                           textAlign: 'right'
-                         }}>{new Intl.NumberFormat().format(totalAmount)}</td>
-                         <td></td>
-                       </tr>
-                     </>
-                 )
-               }}/>
-      </DashboardCard>
-  );
-}
-
-export default IncomeDashboardCard;
+export const allIncomings = () => INCOME_DATA_SOURCE
+export const recurringIncomings = () => allIncomings().filter(it => it.recurring)
+export const adHocIncomings = () => allIncomings().filter(it => !it.recurring)

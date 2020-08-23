@@ -1,9 +1,7 @@
 import React from 'react';
-import {RiseOutlined} from "@ant-design/icons";
-import {allIncomings} from "./IncomeData";
 import {formatNumber, toHumanDuration} from "../components/utils";
 import BaseTable from "../components/BaseTable";
-import BaseCard from "../components/BaseCard";
+import {Incoming} from "./model";
 
 const columns = [
   {
@@ -27,34 +25,31 @@ const columns = [
   },
 ];
 
-function IncomeDashboardCard() {
+const summary = (pageData: Incoming[]) => {
+  let totalAmount = 0;
+  pageData.forEach(({amount}) => {
+    totalAmount += amount;
+  });
   return (
-      <BaseCard title="Income"
-                description={"Upcoming credits to your account"}
-                icon={<RiseOutlined/>}
-      >
-        <BaseTable dataSource={allIncomings()}
-                   columns={columns}
-                   summary={pageData => {
-                     let totalAmount = 0;
-                     pageData.forEach(({amount}) => {
-                       totalAmount += amount;
-                     });
-                     return (
-                         <>
-                           <tr>
-                             <td><b>Total</b></td>
-                             <td style={{
-                               fontWeight: "bold",
-                               textAlign: 'right'
-                             }}>{new Intl.NumberFormat().format(totalAmount)}</td>
-                             <td></td>
-                           </tr>
-                         </>
-                     )
-                   }}/>
-      </BaseCard>
+      <>
+        <tr>
+          <td><b>Total</b></td>
+          <td style={{
+            fontWeight: "bold",
+            textAlign: 'right'
+          }}>{formatNumber(totalAmount)}</td>
+          <td></td>
+        </tr>
+      </>
+  )
+}
+
+function IncomeTable(props) {
+  return (
+      <BaseTable dataSource={props.dataSource}
+                 columns={columns}
+                 summary={props.showSummary ? pageData => summary(pageData) : undefined}/>
   );
 }
 
-export default IncomeDashboardCard;
+export default IncomeTable;

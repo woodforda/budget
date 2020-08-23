@@ -1,84 +1,28 @@
-import React from 'react';
-import {Table} from "antd";
-import {DollarOutlined} from "@ant-design/icons";
-import DashboardCard from '../dashboard/DashboardCard';
+import {toDate} from "../components/utils";
+import {SavingsGoal} from "./model";
 
-const dataSource = [
+const SAVINGS_DATA_SOURCE:SavingsGoal[] = [
   {
     key: '1',
-    goal: 'Acoustic Guitar',
+    goal: 'Vacation to Hawaii',
     amount: 1000,
-    dueDate: '25th December 2020',
+    dueDate: toDate('2020-12-25'),
+    priority: 1,
   },
   {
     key: '2',
-    goal: 'Wedding Australia',
+    goal: 'New Dishwasher',
     amount: 2000,
-    dueDate: '13th March 2021',
+    dueDate: toDate('2021-03-13'),
+    priority: 2,
   },
   {
     key: '3',
-    goal: 'Vespa',
+    goal: 'New Car',
     amount: 6000,
-    dueDate: 'Summer 2021',
+    dueDate: toDate('2021-05-29'),
+    priority: 3,
   },
 ];
 
-const columns = [
-  {
-    title: 'Goal',
-    dataIndex: 'goal',
-    key: 'goal',
-  },
-  {
-    title: 'Amount',
-    dataIndex: 'amount',
-    key: 'amount',
-    align: 'right' as 'right',
-    render: (amt: number) => {
-      return (<>{new Intl.NumberFormat().format(amt)}</>)
-    },
-  },
-  {
-    title: 'Due',
-    dataIndex: 'dueDate',
-    key: 'dueDate',
-  },
-];
-
-function SavingsDashboardCard() {
-  return (
-      <DashboardCard title="Savings Goals"
-                     description={"Progress on savings targets"}
-                     icon={<DollarOutlined/>}
-                     link={"/savings"}
-      >
-        <Table dataSource={dataSource}
-               style={{borderRadius: '25px'}}
-               columns={columns}
-               bordered={false}
-               pagination={false}
-               size={"small"}
-               summary={pageData => {
-                 let totalAmount = 0;
-                 pageData.forEach(({amount}) => {
-                   totalAmount += amount;
-                 });
-                 return (
-                     <>
-                       <tr>
-                         <td><b>Total</b></td>
-                         <td style={{
-                           fontWeight: "bold",
-                           textAlign: 'right'
-                         }}>{new Intl.NumberFormat().format(totalAmount)}</td>
-                         <td></td>
-                       </tr>
-                     </>
-                 )
-               }}/>
-      </DashboardCard>
-  );
-}
-
-export default SavingsDashboardCard;
+export const allSavingsGoals = () => SAVINGS_DATA_SOURCE

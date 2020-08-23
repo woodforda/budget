@@ -1,21 +1,21 @@
 import React from 'react';
 import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
-import {adHocOutgoings} from "./BillsData";
 import BaseCard from "../components/BaseCard";
-import BillsTable from "./BillsTable";
+import {allActualsVerseBudget} from "./BudgetData";
+import BudgetStatusTable from './BudgetStatusTable';
 
-function BillsCard() {
+function BudgetCard() {
   return (
-      <BaseCard title={"One-off Bills"}
-                description={"Upcoming bills to be paid"}
+      <BaseCard title={"Categories"}
+                description={"Current budget"}
                 actions={[
                   <SettingOutlined key="setting"/>,
                   <EditOutlined key="edit"/>,
                   <EllipsisOutlined key="ellipsis"/>
                 ]}>
-        <BillsTable dataSource={adHocOutgoings()}/>
+        <BudgetStatusTable dataSource={allActualsVerseBudget()} showSummary={true}/>
       </BaseCard>
   );
 }
 
-export default BillsCard;
+export default BudgetCard;

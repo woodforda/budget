@@ -1,19 +1,18 @@
 import React from 'react';
-import {PageHeader, Typography} from "antd";
-import BillsDashboardCard from '../dashboard/BillsDashboardCard';
+import Page from "../components/Page";
+import BudgetCard from "./BudgetCard";
+import BudgetStatusCard from "./BudgetStatusCard";
+import {Cards} from "../components/Cards";
 
-const {Title} = Typography;
-
-function Bills() {
+function Budget() {
   return (
-      <div>
-        <PageHeader
-            title={"Bills"}
-            onBack={() => null}
-        />
-        <BillsDashboardCard/>
-      </div>
+      <Page title={"Budget"}>
+        <Cards>
+          <BudgetCard/>
+          <BudgetStatusCard/>
+        </Cards>
+      </Page>
   );
 }
 
-export default Bills;
+export default Budget;

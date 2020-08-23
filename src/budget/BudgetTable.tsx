@@ -1,34 +1,44 @@
 import React from 'react';
 import BaseTable from "../components/BaseTable";
-import {Outgoing} from "./model";
-import {formatNumber, toHumanDuration} from "../components/utils";
+import {BudgetEntry} from "./model";
+import {formatNumber} from "../components/utils";
 
 const columns = [
   {
-    title: 'To',
-    dataIndex: 'payee',
-    key: 'payee',
+    title: 'Category',
+    dataIndex: 'category',
+    key: 'catgory',
   },
   {
-    title: 'Amount',
-    dataIndex: 'amount',
-    key: 'amount',
+    title: 'Budgeted',
+    dataIndex: 'budget',
+    key: 'budget',
     align: 'right' as 'right',
     render: formatNumber,
   },
   {
-    title: 'Due',
-    dataIndex: 'dueDate',
-    key: 'dueDate',
-    align: 'center' as 'center',
-    render: toHumanDuration,
+    title: 'Actual',
+    dataIndex: 'actual',
+    key: 'actual',
+    align: 'right' as 'right',
+    render: formatNumber,
   },
+  {
+    title: 'Difference',
+    dataIndex: 'difference',
+    key: 'difference',
+    align: 'right' as 'right',
+    render: formatNumber,
+  },
+
 ];
 
-const summary = (pageData: Outgoing[]) => {
-  let totalAmount = 0;
-  pageData.forEach(({amount}) => {
-    totalAmount += amount;
+const summary = (pageData: BudgetEntry[]) => {
+  let totalBudget = 0;
+  let totalActual = 0;
+  pageData.forEach(({budget, actual}) => {
+    totalBudget += budget;
+    totalActual += actual;
   });
   return (
       <>
@@ -37,18 +47,21 @@ const summary = (pageData: Outgoing[]) => {
           <td style={{
             fontWeight: "bold",
             textAlign: 'right'
-          }}>{formatNumber(totalAmount)}</td>
-          <td></td>
+          }}>{formatNumber(totalBudget)}</td>
+          <td style={{
+            fontWeight: "bold",
+            textAlign: 'right'
+          }}>{formatNumber(totalActual)}</td>
         </tr>
       </>
   )
 }
 
-function BillsTable(props) {
+function BudgetTable(props) {
   return (
       <BaseTable dataSource={props.dataSource} columns={columns}
                  summary={props.showSummary ? pageData => summary(pageData) : undefined}/>
   );
 }
 
-export default BillsTable;
+export default BudgetTable;

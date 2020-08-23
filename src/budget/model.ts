@@ -1,7 +1,6 @@
-export interface Outgoing {
+export interface BudgetEntry {
   key: string;
-  payee: string;
-  amount: number;
-  dueDate: Date;
-  recurring: boolean;
+  category: string;
+  budget: number;
+  actual: number;
 }

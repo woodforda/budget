@@ -1,14 +1,13 @@
 import React from 'react';
-import {PageHeader} from "antd";
-import BudgetDashboardCard from '../dashboard/BudgetDashboardCard';
+import Page from '../components/Page';
+import SavingsCard from './SavingsCard';
 
-function Budget() {
+function Savings() {
   return (
-      <div>
-        <PageHeader title={"Budget"} onBack={() => null}/>
-        <BudgetDashboardCard/>
-      </div>
+      <Page title={"Savings"}>
+        <SavingsCard/>
+      </Page>
   );
 }
 
-export default Budget;
+export default Savings;
