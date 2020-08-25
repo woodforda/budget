@@ -1,4 +1,3 @@
-import React from 'react';
 import {styled} from "styletron-react";
 
 export const Cards = styled("div", {

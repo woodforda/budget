@@ -1,13 +1,13 @@
 import React from 'react';
-import BaseTable from "../components/BaseTable";
-import {Outgoing} from "./model";
-import {formatNumber, toHumanDuration} from "../components/utils";
+import {formatNumber, toHumanDuration} from "../../components/utils";
+import BaseTable from "../../components/BaseTable";
+import {Incoming} from "./model";
 
 const columns = [
   {
-    title: 'To',
-    dataIndex: 'payee',
-    key: 'payee',
+    title: 'From',
+    dataIndex: 'payer',
+    key: 'payer',
   },
   {
     title: 'Amount',
@@ -25,7 +25,7 @@ const columns = [
   },
 ];
 
-const summary = (pageData: Outgoing[]) => {
+const summary = (pageData: Incoming[]) => {
   let totalAmount = 0;
   pageData.forEach(({amount}) => {
     totalAmount += amount;
@@ -44,11 +44,12 @@ const summary = (pageData: Outgoing[]) => {
   )
 }
 
-function BillsTable(props) {
+function IncomeTable(props) {
   return (
-      <BaseTable dataSource={props.dataSource} columns={columns}
+      <BaseTable dataSource={props.dataSource}
+                 columns={columns}
                  summary={props.showSummary ? pageData => summary(pageData) : undefined}/>
   );
 }
 
-export default BillsTable;
+export default IncomeTable;

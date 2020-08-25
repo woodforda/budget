@@ -1,8 +1,8 @@
 import React from 'react';
 import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
 import BaseCard from "../components/BaseCard";
-import SavingsTable from "./SavingsTable";
-import {allSavingsGoals} from "./SavingsData";
+import SavingsTable from "./meta/SavingsTable";
+import {allSavingsGoals} from "./meta/savings-data";
 
 function SavingsCard() {
   return (

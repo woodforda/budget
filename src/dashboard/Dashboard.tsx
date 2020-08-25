@@ -6,6 +6,7 @@ import IncomeDashboardCard from "../income/IncomeDashboardCard";
 import BillsDashboardCard from "../bills/BillsDashboardCard";
 import SavingsDashboardCard from "../savings/SavingsDashboardCard";
 import BudgetDashboardCard from "../budget/BudgetDashboardCard";
+import {TITLE} from "./meta/dashboard-labels";
 
 const DashboardCards = withStyleDeep(Cards, {
   justifyContent: 'center',
@@ -15,7 +16,7 @@ const DashboardCards = withStyleDeep(Cards, {
 function Dashboard() {
   return (
       <div>
-        <PageHeader title={"Dashboard"} backIcon={false} />
+        <PageHeader title={TITLE} backIcon={false}/>
         <DashboardCards>
           <IncomeDashboardCard/>
           <BillsDashboardCard/>

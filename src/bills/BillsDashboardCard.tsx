@@ -1,15 +1,15 @@
 import React from 'react';
-import {FallOutlined} from "@ant-design/icons";
-import {allOutgoings} from "./BillsData";
-import BillsTable from "./BillsTable";
+import {allOutgoings} from "./meta/bills-data";
+import BillsTable from "./meta/BillsTable";
 import BaseCard from "../components/BaseCard";
+import {BILLS_DESCRIPTION, BILLS_TITLE} from "./meta/bills-labels";
+import BillsIcon from './meta/BillsIcon';
 
 function BillsDashboardCard() {
   return (
-      <BaseCard title="Bills"
-                description={"Upcoming bills to be paid"}
-                icon={<FallOutlined/>}
-      >
+      <BaseCard title={BILLS_TITLE}
+                description={BILLS_DESCRIPTION}
+                icon={<BillsIcon/>}>
         <BillsTable dataSource={allOutgoings()} showSummary={true}/>
       </BaseCard>
   );

@@ -1,14 +1,15 @@
 import React from 'react';
-import {DollarOutlined} from "@ant-design/icons";
-import {allSavingsGoals} from "./SavingsData";
-import SavingsTable from "./SavingsTable";
 import BaseCard from '../components/BaseCard';
+import SavingsTable from "./meta/SavingsTable";
+import SavingsIcon from "./meta/SavingsIcon";
+import {allSavingsGoals} from "./meta/savings-data";
+import {DESCRIPTION, TITLE} from "./meta/savings-labels";
 
 function SavingsDashboardCard() {
   return (
-      <BaseCard title="Savings"
-                description={"Progress on savings targets"}
-                icon={<DollarOutlined/>}>
+      <BaseCard title={TITLE}
+                description={DESCRIPTION}
+                icon={<SavingsIcon/>}>
         <SavingsTable dataSource={allSavingsGoals()} showSummary="true"/>
       </BaseCard>
   );

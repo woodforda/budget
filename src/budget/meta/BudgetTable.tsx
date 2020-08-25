@@ -1,7 +1,7 @@
 import React from 'react';
-import BaseTable from "../components/BaseTable";
+import BaseTable from "../../components/BaseTable";
 import {BudgetEntry} from "./model";
-import {formatNumber} from "../components/utils";
+import {formatNumber} from "../../components/utils";
 
 const columns = [
   {

@@ -1,6 +1,6 @@
 import React from 'react';
-import {formatNumber, toHumanDuration} from "../components/utils";
-import BaseTable from "../components/BaseTable";
+import {formatNumber, toHumanDuration} from "../../components/utils";
+import BaseTable from "../../components/BaseTable";
 import {SavingsGoal} from "./model";
 
 const columns = [

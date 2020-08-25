@@ -1,7 +1,7 @@
-import {toDate} from '../components/utils';
+import {toDate} from '../../components/utils';
 import {Incoming} from "./model";
 
-const INCOME_DATA_SOURCE:Incoming[] = [
+const INCOME_DATA_SOURCE: Incoming[] = [
   {
     key: '1',
     payer: 'Salary',

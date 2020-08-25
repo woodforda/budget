@@ -1,0 +1,54 @@
+@import '~antd/dist/antd.less';
+
+@card-radius: 25px;
+@body-background: #e5e3d0;
+@layout-header-background: #0a541b;
+@layout-header-padding: 0 0 0 10px;
+@layout-body-background: @body-background;
+@layout-header-color: white;
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ant-card {
+  flex-grow: 1;
+  flex-basis: auto;
+  margin: 5px;
+  max-width: content-box;
+}
+
+.ant-card-meta {
+  min-width: 400px;
+  margin-bottom: 10px;
+}
+
+.ant-card-actions {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.ant-menu {
+  border-radius: 15px;
+}
+
+.ant-menu-item {
+  border-radius: 15px;
+}
+
+.ant-layout {
+  margin: 10px;
+  height: 100vh;
+}
+
+.ant-layout-header {
+  border-radius: 15px;
+  margin-bottom: 5px;
+  font-size: calc(10px + 2vmin);
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.ant-layout-content {
+}

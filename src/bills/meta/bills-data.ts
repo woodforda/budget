@@ -1,5 +1,5 @@
 import {Outgoing} from "./model";
-import {toDate} from "../components/utils";
+import {toDate} from "../../components/utils";
 
 const BILLS_DATA_SOURCE: Outgoing[] = [
   {

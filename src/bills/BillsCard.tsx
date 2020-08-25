@@ -1,8 +1,8 @@
 import React from 'react';
 import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
-import {adHocOutgoings} from "./BillsData";
+import {adHocOutgoings} from "./meta/bills-data";
 import BaseCard from "../components/BaseCard";
-import BillsTable from "./BillsTable";
+import BillsTable from "./meta/BillsTable";
 
 function BillsCard() {
   return (

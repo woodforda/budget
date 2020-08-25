@@ -1,4 +1,4 @@
-import {toDate} from "../components/utils";
+import {toDate} from "../../components/utils";
 import {SavingsGoal} from "./model";
 
 const SAVINGS_DATA_SOURCE:SavingsGoal[] = [

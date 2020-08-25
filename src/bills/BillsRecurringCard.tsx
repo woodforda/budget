@@ -1,8 +1,8 @@
 import React from 'react';
 import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
-import {recurringOutgoings} from "./BillsData";
+import {recurringOutgoings} from "./meta/bills-data";
 import BaseCard from "../components/BaseCard";
-import BillsTable from "./BillsTable";
+import BillsTable from "./meta/BillsTable";
 
 function BillsRecurringCard() {
   return (
