@@ -1,7 +1,7 @@
 import {toDate} from "../../components/utils";
 import {SavingsGoal} from "./model";
 
-const SAVINGS_DATA_SOURCE:SavingsGoal[] = [
+export const SAVINGS_DATA_SOURCE: SavingsGoal[] = [
   {
     key: '1',
     goal: 'Vacation to Hawaii',
@@ -25,4 +25,3 @@ const SAVINGS_DATA_SOURCE:SavingsGoal[] = [
   },
 ];
 
-export const allSavingsGoals = () => SAVINGS_DATA_SOURCE

@@ -5,3 +5,17 @@ export interface SavingsGoal {
   dueDate: Date;
   priority: number;
 }
+
+
+export class SavingsData {
+
+  readonly savingsGoals: SavingsGoal[];
+
+  constructor(savingsGoals: SavingsGoal[]) {
+    this.savingsGoals = savingsGoals
+  }
+
+  allSavingsGoals() {
+    return this.savingsGoals;
+  }
+}

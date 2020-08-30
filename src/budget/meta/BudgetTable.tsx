@@ -1,36 +1,15 @@
 import React from 'react';
-import BaseTable from "../../components/BaseTable";
+import BaseTable from "../../components/table/BaseTable";
 import {BudgetEntry} from "./model";
 import {formatNumber} from "../../components/utils";
+import {Table} from "antd";
+import {columnActual, columnBudget, columnCategory, columnDifference} from "../../components/table/table-columns";
 
 const columns = [
-  {
-    title: 'Category',
-    dataIndex: 'category',
-    key: 'catgory',
-  },
-  {
-    title: 'Budgeted',
-    dataIndex: 'budget',
-    key: 'budget',
-    align: 'right' as 'right',
-    render: formatNumber,
-  },
-  {
-    title: 'Actual',
-    dataIndex: 'actual',
-    key: 'actual',
-    align: 'right' as 'right',
-    render: formatNumber,
-  },
-  {
-    title: 'Difference',
-    dataIndex: 'difference',
-    key: 'difference',
-    align: 'right' as 'right',
-    render: formatNumber,
-  },
-
+  columnCategory,
+  columnBudget,
+  columnActual,
+  columnDifference
 ];
 
 const summary = (pageData: BudgetEntry[]) => {
@@ -41,26 +20,18 @@ const summary = (pageData: BudgetEntry[]) => {
     totalActual += actual;
   });
   return (
-      <>
-        <tr>
-          <td><b>Total</b></td>
-          <td style={{
-            fontWeight: "bold",
-            textAlign: 'right'
-          }}>{formatNumber(totalBudget)}</td>
-          <td style={{
-            fontWeight: "bold",
-            textAlign: 'right'
-          }}>{formatNumber(totalActual)}</td>
-        </tr>
-      </>
+      <Table.Summary.Row>
+        <Table.Summary.Cell index={0}>Total</Table.Summary.Cell>
+        <Table.Summary.Cell className={"summary-total"} index={1}>{formatNumber(totalBudget)}</Table.Summary.Cell>
+        <Table.Summary.Cell className={"summary-total"} index={2}>{formatNumber(totalActual)}</Table.Summary.Cell>
+      </Table.Summary.Row>
   )
 }
 
 function BudgetTable(props) {
   return (
       <BaseTable dataSource={props.dataSource} columns={columns}
-                 summary={props.showSummary ? pageData => summary(pageData) : undefined}/>
+                 summary={props.showSummary ? summary : undefined}/>
   );
 }
 

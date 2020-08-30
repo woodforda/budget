@@ -4,8 +4,8 @@ import './index.css';
 import App from './app/App';
 import * as serviceWorker from './serviceWorker';
 
-import { Provider as StyletronProvider, DebugEngine } from "styletron-react";
-import { Client as Styletron } from "styletron-engine-atomic";
+import {DebugEngine, Provider as StyletronProvider} from "styletron-react";
+import {Client as Styletron} from "styletron-engine-atomic";
 
 const debug =
     process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();
@@ -13,12 +13,12 @@ const debug =
 const engine = new Styletron();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <StyletronProvider value={engine} debug={debug} debugAfterHydration>
-      <App />
-    </StyletronProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+      <StyletronProvider value={engine} debug={debug} debugAfterHydration>
+        <App/>
+      </StyletronProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

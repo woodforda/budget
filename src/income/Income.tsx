@@ -1,12 +1,20 @@
 import React from 'react';
-import IncomeDashboardCard from "./IncomeDashboardCard";
 import Page from "../components/Page";
 import {TITLE} from "./meta/income-labels";
+import IncomeCard from './IncomeCard';
+import IncomeEntryCard from "./IncomeEntryCard";
+import {Cards} from "../components/card/Cards";
+import {IncomeDataProvider} from "./meta/IncomeDataContext";
 
 function Income() {
   return (
       <Page title={TITLE}>
-        <IncomeDashboardCard/>
+        <IncomeDataProvider>
+          <Cards>
+            <IncomeCard/>
+            <IncomeEntryCard/>
+          </Cards>
+        </IncomeDataProvider>
       </Page>
   );
 }

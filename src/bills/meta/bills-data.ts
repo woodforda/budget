@@ -1,13 +1,13 @@
 import {Outgoing} from "./model";
 import {toDate} from "../../components/utils";
 
-const BILLS_DATA_SOURCE: Outgoing[] = [
+export const BILLS_DATA_SOURCE: Outgoing[] = [
   {
     key: '1',
     payee: 'Health Insurance',
     amount: 300.00,
     dueDate: toDate("2020-09-01"),
-    recurring:true,
+    recurring: true,
   },
   {
     key: '2',
@@ -115,7 +115,3 @@ const BILLS_DATA_SOURCE: Outgoing[] = [
     recurring:true,
   },
 ];
-
-export const allOutgoings = () => BILLS_DATA_SOURCE
-export const recurringOutgoings = () => allOutgoings().filter(it => it.recurring)
-export const adHocOutgoings = () => allOutgoings().filter(it => !it.recurring)

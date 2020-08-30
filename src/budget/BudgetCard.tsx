@@ -1,10 +1,11 @@
 import React from 'react';
 import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
-import BaseCard from "../components/BaseCard";
-import {allActualsVerseBudget} from "./BudgetData";
+import BaseCard from "../components/card/BaseCard";
 import BudgetStatusTable from './BudgetStatusTable';
+import {useBudgetData} from "./meta/BudgetDataContext";
 
 function BudgetCard() {
+  const budgetData = useBudgetData()[0]
   return (
       <BaseCard title={"Categories"}
                 description={"Current budget"}
@@ -13,7 +14,7 @@ function BudgetCard() {
                   <EditOutlined key="edit"/>,
                   <EllipsisOutlined key="ellipsis"/>
                 ]}>
-        <BudgetStatusTable dataSource={allActualsVerseBudget()} showSummary={true}/>
+        <BudgetStatusTable dataSource={budgetData.allActualsVerseBudget()} showSummary={true}/>
       </BaseCard>
   );
 }

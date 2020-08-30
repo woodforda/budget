@@ -1,7 +1,7 @@
 import {toDate} from '../../components/utils';
 import {Incoming} from "./model";
 
-const INCOME_DATA_SOURCE: Incoming[] = [
+export const INCOME_DATA_SOURCE: Incoming[] = [
   {
     key: '1',
     payer: 'Salary',
@@ -24,7 +24,3 @@ const INCOME_DATA_SOURCE: Incoming[] = [
     recurring: false,
   },
 ];
-
-export const allIncomings = () => INCOME_DATA_SOURCE
-export const recurringIncomings = () => allIncomings().filter(it => it.recurring)
-export const adHocIncomings = () => allIncomings().filter(it => !it.recurring)

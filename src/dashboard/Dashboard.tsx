@@ -1,29 +1,33 @@
 import React from 'react';
-import {PageHeader} from "antd";
 import {withStyleDeep} from "styletron-react";
-import {Cards} from '../components/Cards';
+import {Cards} from '../components/card/Cards';
 import IncomeDashboardCard from "../income/IncomeDashboardCard";
 import BillsDashboardCard from "../bills/BillsDashboardCard";
 import SavingsDashboardCard from "../savings/SavingsDashboardCard";
 import BudgetDashboardCard from "../budget/BudgetDashboardCard";
 import {TITLE} from "./meta/dashboard-labels";
+import Page from "../components/Page";
+import {IncomeDataProvider} from "../income/meta/IncomeDataContext";
+import {BillDataProvider} from "../bills/meta/BillDataContext";
+import {SavingsDataProvider} from "../savings/meta/SavingsDataContext";
+import {BudgetDataProvider} from "../budget/meta/BudgetDataContext";
 
 const DashboardCards = withStyleDeep(Cards, {
   justifyContent: 'center',
   alignItems: 'stretch',
+  flexFlow: "row wrap",
 })
 
 function Dashboard() {
   return (
-      <div>
-        <PageHeader title={TITLE} backIcon={false}/>
+      <Page title={TITLE}>
         <DashboardCards>
-          <IncomeDashboardCard/>
-          <BillsDashboardCard/>
-          <SavingsDashboardCard/>
-          <BudgetDashboardCard/>
+          <IncomeDataProvider><IncomeDashboardCard/></IncomeDataProvider>
+          <BillDataProvider><BillsDashboardCard/></BillDataProvider>
+          <SavingsDataProvider><SavingsDashboardCard/></SavingsDataProvider>
+          <BudgetDataProvider><BudgetDashboardCard/></BudgetDataProvider>
         </DashboardCards>
-      </div>
+      </Page>
   );
 }
 

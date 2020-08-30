@@ -1,10 +1,12 @@
 import React from 'react';
 import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
-import {recurringOutgoings} from "./meta/bills-data";
-import BaseCard from "../components/BaseCard";
+import BaseCard from "../components/card/BaseCard";
 import BillsTable from "./meta/BillsTable";
+import {useBillData} from "./meta/BillDataContext";
 
 function BillsRecurringCard() {
+  const billData = useBillData()[0]
+
   return (
       <BaseCard title="Recurring Bills"
                 description={"Bills that occur at regular intervals"}
@@ -13,7 +15,7 @@ function BillsRecurringCard() {
                   <EditOutlined key="edit"/>,
                   <EllipsisOutlined key="ellipsis"/>
                 ]}>
-        <BillsTable dataSource={recurringOutgoings()}/>
+        <BillsTable dataSource={billData.recurringBills()}/>
       </BaseCard>
   );
 }

@@ -1,4 +1,6 @@
-const BUDGET_DATA_SOURCE = [
+import {BudgetEntry} from "./model";
+
+export const BUDGET_DATA_SOURCE: BudgetEntry[] = [
   {
     key: '1',
     category: 'Healthcare',
@@ -30,12 +32,3 @@ const BUDGET_DATA_SOURCE = [
     actual: 260.00,
   },
 ];
-
-export const allBudgetEntries = () => BUDGET_DATA_SOURCE
-
-export const allActualsVerseBudget = () => allBudgetEntries().map(it => {
-  return {
-    ...it,
-    difference: it.budget - it.actual
-  }
-})
