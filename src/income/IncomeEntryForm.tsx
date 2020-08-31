@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Form, Input, InputNumber, Space} from "antd";
+import {Form, Input, InputNumber} from "antd";
 
 
 const layout = {
@@ -12,7 +12,7 @@ const tailLayout = {
 };
 
 
-function IncomeForm() {
+function IncomeEntryForm() {
 
   const onFinish = values => {
     console.log('Success:', values);
@@ -44,14 +44,14 @@ function IncomeForm() {
           <InputNumber/>
         </Form.Item>
 
-        <Form.Item {...tailLayout}>
-          <Space>
-            <Button type="default" htmlType="reset">Cancel</Button>
-            <Button type="primary" htmlType="submit">Save</Button>
-          </Space>
-        </Form.Item>
+        {/*<Form.Item {...tailLayout}>*/}
+        {/*  <Space>*/}
+        {/*    <Button type="default" htmlType="reset">Cancel</Button>*/}
+        {/*    <Button type="primary" htmlType="submit">Save</Button>*/}
+        {/*  </Space>*/}
+        {/*</Form.Item>*/}
       </Form>
   );
 }
 
-export default IncomeForm;
+export default IncomeEntryForm;

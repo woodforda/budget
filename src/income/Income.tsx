@@ -2,9 +2,9 @@ import React from 'react';
 import Page from "../components/Page";
 import {TITLE} from "./meta/income-labels";
 import IncomeCard from './IncomeCard';
-import IncomeEntryCard from "./IncomeEntryCard";
 import {Cards} from "../components/card/Cards";
 import {IncomeDataProvider} from "./meta/IncomeDataContext";
+import IncomeDrawer from "./IncomeDrawer";
 
 function Income() {
   return (
@@ -12,7 +12,7 @@ function Income() {
         <IncomeDataProvider>
           <Cards>
             <IncomeCard/>
-            <IncomeEntryCard/>
+            <IncomeDrawer/>
           </Cards>
         </IncomeDataProvider>
       </Page>
