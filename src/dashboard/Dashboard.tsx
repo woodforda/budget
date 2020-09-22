@@ -7,10 +7,10 @@ import SavingsDashboardCard from "../savings/SavingsDashboardCard";
 import BudgetDashboardCard from "../budget/BudgetDashboardCard";
 import {TITLE} from "./meta/dashboard-labels";
 import Page from "../components/Page";
-import {IncomeDataProvider} from "../income/meta/IncomeDataContext";
 import {BillDataProvider} from "../bills/meta/BillDataContext";
 import {SavingsDataProvider} from "../savings/meta/SavingsDataContext";
 import {BudgetDataProvider} from "../budget/meta/BudgetDataContext";
+import DashboardIcon from "./meta/DashboardIcon";
 
 const DashboardCards = withStyleDeep(Cards, {
   justifyContent: 'center',
@@ -20,9 +20,9 @@ const DashboardCards = withStyleDeep(Cards, {
 
 function Dashboard() {
   return (
-      <Page title={TITLE}>
+      <Page title={TITLE} icon={<DashboardIcon/>}>
         <DashboardCards>
-          <IncomeDataProvider><IncomeDashboardCard/></IncomeDataProvider>
+          <IncomeDashboardCard/>
           <BillDataProvider><BillsDashboardCard/></BillDataProvider>
           <SavingsDataProvider><SavingsDashboardCard/></SavingsDataProvider>
           <BudgetDataProvider><BudgetDashboardCard/></BudgetDataProvider>

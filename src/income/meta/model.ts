@@ -8,19 +8,10 @@ export interface Incoming {
 
 export class IncomeData {
 
-  readonly incomings: Incoming[]
-  private drawVisible: boolean = true
+  private incomings: Incoming[]
 
   constructor(incomings: Incoming[]) {
     this.incomings = incomings
-  }
-
-  setDrawVisible(value: boolean) {
-    this.drawVisible = value
-  }
-
-  isDrawerVisible() {
-    return this.drawVisible
   }
 
   recurringIncomings() {
@@ -34,4 +25,5 @@ export class IncomeData {
   allIncomings() {
     return this.incomings;
   }
+
 }

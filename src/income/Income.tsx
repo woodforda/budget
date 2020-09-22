@@ -3,20 +3,21 @@ import Page from "../components/Page";
 import {TITLE} from "./meta/income-labels";
 import IncomeCard from './IncomeCard';
 import {Cards} from "../components/card/Cards";
-import {IncomeDataProvider} from "./meta/IncomeDataContext";
 import IncomeDrawer from "./IncomeDrawer";
+import {useIncomeState} from "./meta/reducer";
+import IncomeIcon from "./meta/IncomeIcon";
+
 
 function Income() {
-  return (
-      <Page title={TITLE}>
-        <IncomeDataProvider>
-          <Cards>
-            <IncomeCard/>
-            <IncomeDrawer/>
-          </Cards>
-        </IncomeDataProvider>
-      </Page>
-  );
+    const context =  useIncomeState()
+    return (
+        <Page title={TITLE} icon={<IncomeIcon/>}>
+            <Cards>
+                <IncomeCard context={context}/>
+                <IncomeDrawer context={context}/>
+            </Cards>
+        </Page>
+    );
 }
 
 export default Income;

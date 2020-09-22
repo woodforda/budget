@@ -1,51 +1,41 @@
-import React, {useReducer} from 'react';
-import {Button, Drawer} from "antd";
+import React from 'react';
+import {Drawer} from "antd";
 import IncomeEntryForm from "./IncomeEntryForm";
-import {useIncomeData} from "./meta/IncomeDataContext";
-
-
-function drawerReducer(state, action) {
-  console.log("I have this action ", action)
-  console.log("I have this state ", state)
-  return action
-}
+import BaseCard from "../components/card/BaseCard";
 
 function IncomeDrawer(props) {
-  let initialState = true
-  const [isVisible, showDrawer] = useReducer(drawerReducer, initialState)
 
-  const incomeData = useIncomeData()[0]
+    let context = props.context
+    let state = context.state
 
-  // const setIncomeData = useIncomeData()[1]
+    const onCancel = context.cancel
+    const onSave = context.save
 
-  function onClose() {
-    // const data: IncomeData = new IncomeData(incomeData.allIncomings())
-    // data.setDrawVisible(false)
-    // setIncomeData(data)
-    showDrawer(false)
-  }
-
-  return (
-      <Drawer
-          title="Create a new account"
-          width={720}
-          onClose={onClose}
-          visible={isVisible}
-          bodyStyle={{paddingBottom: 80}}
-          footer={
-            <div style={{textAlign: 'right',}}>
-              <Button onClick={onClose} style={{marginRight: 8}}>
-                Cancel
-              </Button>
-              <Button onClick={onClose} type="primary">
-                Submit
-              </Button>
-            </div>
-          }
-      >
-        <IncomeEntryForm/>
-      </Drawer>
-  );
+    return (
+        <Drawer
+            title="Create a new account"
+            width={'45%'}
+            onClose={onCancel}
+            visible={state.drawer === 'opened'}
+            closeIcon={false}
+            bodyStyle={{paddingBottom: 80}}
+            maskClosable={false}
+            // footer={
+            //     <div style={{textAlign: 'right',}}>
+            //         <Button onClick={onCancel} style={{marginRight: 8}}>
+            //             Cancel
+            //         </Button>
+            //         <Button onClick={onSave} type="primary">
+            //             Save
+            //         </Button>
+            //     </div>
+            // }
+        >
+            <BaseCard hoverable={false}>
+                <IncomeEntryForm context={context}/>
+            </BaseCard>
+        </Drawer>
+    );
 }
 
 export default IncomeDrawer;

@@ -1,6 +1,9 @@
-import {renderAmount, renderDuration} from "./Renderers";
+import {renderActionButton, renderAmount, renderDuration} from "./Renderers";
 import {formatNumber} from "../utils";
 import moment from "moment";
+import {Button, Space} from "antd";
+import {EditOutlined} from "@ant-design/icons";
+import React from "react";
 
 
 const sortDates = (a, b) => moment(a.dueDate).diff(moment(b.dueDate))
@@ -82,4 +85,10 @@ export const columnDifference = {
   key: 'difference',
   align: 'right' as 'right',
   render: formatNumber,
+}
+
+export const columnAction = {
+  title: 'Action',
+  key: 'action',
+  render: renderActionButton
 }

@@ -1,31 +1,27 @@
 import React from 'react';
 import BaseCard from "../components/card/BaseCard";
 import IncomeTable from "./meta/IncomeTable";
-import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
-import {useIncomeData} from "./meta/IncomeDataContext";
-import {IncomeData} from "./meta/model";
+import ButtonCreate from "../components/button/ButtonCreate";
 
-function IncomeCard() {
-  const incomeData = useIncomeData()[0]
-  const setIncomeData = useIncomeData()[1]
+function IncomeCard(props) {
+    let context = props.context
+    let state = context.state
 
-  const createNew = () => {
-    const data: IncomeData = new IncomeData(incomeData.allIncomings())
-    data.setDrawVisible(true)
-    setIncomeData(data)
-  }
-
-  return (
-      <BaseCard title={"Ti"}
-                description={"These are it"}
-                actions={[
-                  <SettingOutlined key="setting" onClick={createNew}/>,
-                  <EditOutlined key="edit"/>,
-                  <EllipsisOutlined key="ellipsis"/>
-                ]}>
-        <IncomeTable dataSource={incomeData.allIncomings()} showSummary={true}/>
-      </BaseCard>
-  );
+    return (
+        <BaseCard title={"Income"}
+                  description={"These are it"}
+            // actions={[
+            //     <SettingOutlined key="setting"/>,
+            //     <EditOutlined key="edit"/>,
+            //     <EllipsisOutlined key="ellipsis"/>
+            // ]}
+                  metaActions={[
+                      <ButtonCreate onClick={context.add}/>
+                  ]}
+        >
+            <IncomeTable context={context} dataSource={state.data.allIncomings()} showSummary={true}/>
+        </BaseCard>
+    );
 }
 
 export default IncomeCard;
