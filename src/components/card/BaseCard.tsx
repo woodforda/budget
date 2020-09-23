@@ -4,7 +4,7 @@ import {Avatar, Card, Space} from "antd";
 const {Meta} = Card;
 
 function BaseCard(props) {
-    let [selected, setSelected] = useState(false)
+    let [, setSelected] = useState(false)
     return (
         <Card hoverable
               actions={props.actions}

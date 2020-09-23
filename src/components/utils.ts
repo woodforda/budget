@@ -13,3 +13,7 @@ export const removeArrayItem = (arr: any[], value: any) => {
     }
     return arr;
 }
+
+export const filterArray = (arr: any[], fn) => {
+    return arr.filter(fn)
+}

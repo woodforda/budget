@@ -1,10 +1,9 @@
 import React from 'react';
-import {Button, Space, Tooltip} from "antd";
+import {Space, Tooltip} from "antd";
 import moment from "moment";
 import {formatNumber, toHumanDuration} from "../utils";
-import {DeleteFilled, EditFilled} from "@ant-design/icons";
 
-export const renderDuration = (value, row, index) => {
+export const renderDuration = (value) => {
     return (
         <Tooltip title={moment(value).format('YYYY-MM-DD')}>
             <span>{toHumanDuration(value)}</span>
@@ -12,7 +11,7 @@ export const renderDuration = (value, row, index) => {
     )
 }
 
-export const renderAmount = (value, row, index) => {
+export const renderAmount = (value) => {
     return formatNumber(value)
 }
 

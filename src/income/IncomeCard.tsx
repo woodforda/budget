@@ -19,7 +19,7 @@ function IncomeCard(props) {
                       <ButtonCreate onClick={context.add}/>
                   ]}
         >
-            <IncomeTable context={context} dataSource={state.data.allIncomings()} showSummary={true}/>
+            <IncomeTable context={context} dataSource={state.incomings} showSummary={true}/>
         </BaseCard>
     );
 }

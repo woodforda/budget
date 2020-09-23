@@ -2,7 +2,7 @@ import React from 'react';
 import BaseTable from "../../components/table/BaseTable";
 import {columnAmount, columnDueDate, columnPayer} from "../../components/table/table-columns";
 import {summaryTotalAmount} from "../../components/table/Summaries";
-import {Button, message, Space} from "antd";
+import {Button, Space} from "antd";
 import {EditFilled} from "@ant-design/icons";
 import ButtonDelete from "../../components/button/ButtonDelete";
 
@@ -30,7 +30,7 @@ function IncomeTable(props) {
                         size={"small"}
                         shape={"circle"}
                         icon={<EditFilled/>}
-                        onClick={(e) => onEdit(record)}/>
+                        onClick={() => onEdit(record)}/>
                 <ButtonDelete record={record} onConfirm={remove}/>
             </Space>
         )

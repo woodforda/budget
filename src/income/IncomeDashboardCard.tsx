@@ -11,7 +11,7 @@ function IncomeDashboardCard() {
         <BaseCard title={TITLE}
                   description={DESCRIPTION}
                   icon={<IncomeIcon/>}>
-            <IncomeTable context={context} dataSource={context.state.data.allIncomings()} showSummary={true}/>
+            <IncomeTable context={context} dataSource={context.state.incomings} showSummary={true}/>
         </BaseCard>
     );
 }
