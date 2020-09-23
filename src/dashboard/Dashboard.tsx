@@ -10,25 +10,24 @@ import Page from "../components/Page";
 import {BillDataProvider} from "../bills/meta/BillDataContext";
 import {SavingsDataProvider} from "../savings/meta/SavingsDataContext";
 import {BudgetDataProvider} from "../budget/meta/BudgetDataContext";
-import DashboardIcon from "./meta/DashboardIcon";
 
 const DashboardCards = withStyleDeep(Cards, {
-  justifyContent: 'center',
-  alignItems: 'stretch',
-  flexFlow: "row wrap",
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    flexFlow: "row wrap",
 })
 
 function Dashboard() {
-  return (
-      <Page title={TITLE} icon={<DashboardIcon/>}>
-        <DashboardCards>
-          <IncomeDashboardCard/>
-          <BillDataProvider><BillsDashboardCard/></BillDataProvider>
-          <SavingsDataProvider><SavingsDashboardCard/></SavingsDataProvider>
-          <BudgetDataProvider><BudgetDashboardCard/></BudgetDataProvider>
-        </DashboardCards>
-      </Page>
-  );
+    return (
+        <Page >
+            <DashboardCards>
+                <IncomeDashboardCard/>
+                <BillDataProvider><BillsDashboardCard/></BillDataProvider>
+                <SavingsDataProvider><SavingsDashboardCard/></SavingsDataProvider>
+                <BudgetDataProvider><BudgetDashboardCard/></BudgetDataProvider>
+            </DashboardCards>
+        </Page>
+    );
 }
 
 export default Dashboard;

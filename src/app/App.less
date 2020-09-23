@@ -49,15 +49,30 @@ body {
 .ant-layout-header {
   border-radius: 15px;
   margin-bottom: 5px;
-  font-size: calc(10px + 2vmin);
-  display: flex;
-  flex-flow: row wrap;
+  //font-size: calc(10px + 2vmin);
 }
 
 .ant-layout-content {
   display: flex;
   flex-flow: column wrap;
+}
 
+.ant-page-header {
+  padding: 10px 5px 5px 5px;
+}
+
+.ant-page-header-heading-title {
+  color: inherit;
+}
+
+.ant-page-header-heading .ant-avatar {
+  margin-right: 2px;
+}
+
+.app-page-header-heading-title {
+  border-radius: 15px;
+  height: inherit;
+  color: #fff;
 }
 
 .summary-total-value {
@@ -71,4 +86,18 @@ body {
 
 .ant-table-selection-column {
   display: none;
+}
+
+.page-header-heading {
+  background-color: inherit;
+  color: @primary-color;
+}
+
+.ant-card-meta-avatar {
+  padding-right: 5px;
+}
+
+.app-card-meta-avatar {
+  color: @primary-color;
+  background-color: inherit;
 }

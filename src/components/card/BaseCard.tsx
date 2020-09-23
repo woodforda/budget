@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {Avatar, Card, Button, Space} from "antd";
-import {EyeOutlined, PlusOutlined} from '@ant-design/icons';
+import {Avatar, Card, Space} from "antd";
 
 const {Meta} = Card;
 
@@ -19,7 +18,7 @@ function BaseCard(props) {
             }}>
                 <Meta title={props.title}
                       description={props.description}
-                      avatar={props.icon != null ? <Avatar shape={"circle"} icon={props.icon} size={"default"}/> : null}
+                      avatar={props.icon != null ? <Avatar shape={"circle"} icon={props.icon} size={"large"} className={"app-card-meta-avatar"}/> : null}
                 />
                 <Space align={"start"}>
                     {props.metaActions}

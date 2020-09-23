@@ -5,10 +5,11 @@ import BudgetStatusCard from "./BudgetStatusCard";
 import {Cards} from "../components/card/Cards";
 import {TITLE} from "./meta/budget-labels";
 import {BudgetDataProvider} from "./meta/BudgetDataContext";
+import BudgetIcon from "./meta/BudgetIcon";
 
 function Budget() {
   return (
-      <Page title={TITLE}>
+      <Page title={TITLE} icon={<BudgetIcon/>}>
         <BudgetDataProvider>
           <Cards>
             <BudgetCard/>

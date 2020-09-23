@@ -5,10 +5,11 @@ import {Cards} from '../components/card/Cards';
 import BillsCard from "./BillsCard";
 import {BILLS_TITLE} from "./meta/bills-labels";
 import {BillDataProvider} from "./meta/BillDataContext";
+import BillsIcon from "./meta/BillsIcon";
 
 function Bills() {
   return (
-      <Page title={BILLS_TITLE}>
+      <Page title={BILLS_TITLE} icon={<BillsIcon/>}>
         <BillDataProvider>
           <Cards>
             <BillsRecurringCard/>
