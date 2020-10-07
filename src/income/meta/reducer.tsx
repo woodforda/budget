@@ -1,4 +1,4 @@
-import React, {Dispatch, useReducer} from "react";
+import React, {Dispatch, useEffect, useReducer} from "react";
 import {Incoming} from "./model";
 import {INCOME_DATA_SOURCE} from "./income-data";
 import {removeArrayItem} from "../../components/utils";
@@ -47,7 +47,6 @@ export const incomeReducer = (state: IncomeState, action) => {
         case Action.REMOVE_INCOMING:
             let incomings: Incoming[] = removeArrayItem(state.incomings, action.payload)
             return {
-                ...state,
                 incomings: incomings,
                 mode: 'DELETE',
                 target: action.payload

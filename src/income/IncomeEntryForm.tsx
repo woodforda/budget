@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Form, Input, InputNumber,} from "antd";
+import {Button, Form, Input, InputNumber, Space,} from "antd";
 
 
 const layout = {
@@ -56,9 +56,11 @@ function IncomeEntryForm(props) {
             {/*    <DatePicker/>*/}
             {/*</Form.Item>*/}
 
-            <Form.Item>
-                <Button type="default" htmlType="reset" onClick={onCancel}>Cancel</Button>
-                <Button type="primary" htmlType="submit">Save</Button>
+            <Form.Item style={{textAlign: "right"}}>
+                <Space size={"small"} align={"end"}>
+                    <Button type="default" htmlType="reset" onClick={onCancel}>Cancel</Button>
+                    <Button type="primary" htmlType="submit">Save</Button>
+                </Space>
             </Form.Item>
         </Form>
     );

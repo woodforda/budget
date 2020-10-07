@@ -16,7 +16,7 @@ function IncomeCard(props) {
             //     <EllipsisOutlined key="ellipsis"/>
             // ]}
                   metaActions={[
-                      <ButtonCreate onClick={context.add}/>
+                      <ButtonCreate onClick={context.create}/>
                   ]}
         >
             <IncomeTable context={context} dataSource={state.incomings} showSummary={true}/>

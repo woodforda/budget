@@ -19,27 +19,27 @@ function IncomeDrawer(props) {
 
     return (
         <Drawer
-            title="Create a new account"
+            title="Create a new incoming"
             width={'45%'}
             onClose={onCancel}
             visible={isVisible()}
             closeIcon={false}
             bodyStyle={{paddingBottom: 80}}
             maskClosable={false}
-            footer={
-                <div style={{textAlign: 'right',}}>
-                    <Button onClick={onCancel} style={{marginRight: 8}}>
-                        Cancel
-                    </Button>
-                    <Button onClick={onSave} type="primary">
-                        Save
-                    </Button>
-                </div>
-            }
+            // footer={
+            //     <div style={{textAlign: 'right',}}>
+            //         <Button onClick={onCancel} style={{marginRight: 8}}>
+            //             Cancel
+            //         </Button>
+            //         <Button onClick={onSave} type="primary">
+            //             Save
+            //         </Button>
+            //     </div>
+            // }
         >
-            <BaseCard hoverable={false}>
+            {/*<BaseCard hoverable={false}>*/}
                 <IncomeEntryForm context={context}/>
-            </BaseCard>
+            {/*</BaseCard>*/}
         </Drawer>
     );
 }
